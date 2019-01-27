@@ -1,0 +1,22 @@
+// Place all the styles related to the welcome controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+div.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background-color: rgb(238, 238, 238);
+    width: 60em;
+    margin:auto;
+    div.middle {
+        background-color: royalblue;
+        margin: 1em 1em 0.1em 0.1em;
+        width: 37em;
+        .post{
+            height: 20em;
+            background-color: rgb(173, 173, 173);
+            margin: 0.1em 0.1em 1em 0.1em;
+            border-radius: 0.3em;
+        } 
+    }
+}

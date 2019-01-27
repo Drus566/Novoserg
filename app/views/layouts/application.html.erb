@@ -1,15 +1,28 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Novoserg</title>
+    <title><%= yield(:title) %> | Novoserg </title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
   <body>
+    <header>
+    <nav>
+        <ul>
+          <li>Главная</li>
+          <li>Новости</li>
+          <li>Посты</li>
+          <li>Регистрация</li>
+        </ul>
+      </nav>
+    </header>
+    <hr>
     <%= yield %>
+    <footer>
+      <hr>
+      <h2>Район новосергиевский</h2>
+    </footer>
   </body>
 </html>
