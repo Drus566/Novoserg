@@ -1,0 +1,12 @@
+<% provide(:title, @user.name) %>
+<div>
+    <%= @user.name %>, <%= @user.email %>
+</div>
+<div>
+    <% if @user.microposts.any? %>
+        <h3>Количество постов: (<%= @user.microposts.count %>)</h3>
+        <ol class="microposts">
+            <%= render @microposts %>
+        </ol>
+    <% end %>
+</div>

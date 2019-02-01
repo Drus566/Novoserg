@@ -8,16 +8,7 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
-    <header>
-    <nav>
-        <ul>
-          <li>Главная</li>
-          <li>Новости</li>
-          <li>Посты</li>
-          <li>Регистрация</li>
-        </ul>
-      </nav>
-    </header>
+    <%= render 'layouts/header' %>
     <hr>
     <%= yield %>
     <footer>

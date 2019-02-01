@@ -1,0 +1,23 @@
+<header>
+    <nav>
+        <ul>
+            <li><%= link_to "Главная", controller: "welcome", action: "index" %></li>
+            <li><%= link_to "Новости", controller: "news_items", action: "index" %></li>
+            <li><%= link_to "Посты", controller: "microposts", action: "index" %></li>
+            <% if logged_in? %>
+                <li><%= link_to "Пользователи", users_path %></li>
+                <li id="drop"><%= link_to "Аккаунт", "#" %>
+                    <ul class="dropdown">
+                        <li><%= link_to "Профиль", current_user %></li>
+                        <li><%= link_to "Настройки", edit_user_path(current_user) %></li>
+                        <li class="divider"></li>
+                        <li><%= link_to "Выйти", logout_path, method: :delete %></li>
+                    </ul>
+                </li>
+            <% else %>
+                <li><%= link_to "Регистрация", controller: "users", action: "new" %></li>
+                <li><%= link_to "Вход", login_path %></li>
+            <% end %>
+        </ul>
+    </nav>
+</header>

@@ -1,0 +1,12 @@
+<% if object.errors.any? %>
+    <div id="error_explanation">
+        <div>
+            У вас есть ошибки в заполнении. Количество: <%= object.errors.count %> 
+        </div>
+        <ul>
+            <% object.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+        </ul>
+    </div>
+<% end %>

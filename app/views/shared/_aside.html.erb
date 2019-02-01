@@ -1,5 +1,10 @@
 <aside>
-    <div class="menu"></div>
-    <div class="menu"></div>
+    <div class="menu">
+        <% if logged_in? %>
+            <div class="row">
+                <%= link_to  yield(:title_link), yield(:link) %>
+            </div>
+        <% end %>
+    </div>
     <div class="menu"></div>
 </aside>

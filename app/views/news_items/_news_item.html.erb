@@ -1,0 +1,13 @@
+<div class="post">
+    <li id="news-<%= news_item.id %>">
+        <span class="user"><%= link_to news_item.user.name, news_item.user %></span>
+         <% if logged_in? %>
+            <% if user_admin? || current_user.id == news_item.user.id %>
+                <%= link_to "Редактировать", edit_news_item_path(news_item.id) %>
+                <%= link_to "Удалить новость", news_item, :method => :delete, data: { confirm: "Вы точно хотите удалить новость?" } %>  
+            <% end %>
+        <% end %>  
+        <span class="content"><%= news_item.content %></span>
+        <span class="timestamp">Новость создана <%= time_ago_in_words(news_item.created_at) %> назад.</span>
+    </li>
+</div>

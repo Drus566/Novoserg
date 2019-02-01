@@ -5,7 +5,41 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-User.create!(name:  "Example User",
+
+User.create!(name:  "Примерный",
     email: "example@railstutorial.org",
-    password:              "foobar",
-    password_confirmation: "foobar")
+    password:              "123456",
+    password_confirmation: "123456")
+
+User.create!(
+    name: "Андрей",
+    email: "ahdpeu566@mail.ru",
+    password: "q1o0o0q1h6",
+    password_confirmation: "q1o0o0q1h6"
+)
+
+User.create!(
+    name: "Игорь",
+    email: "igor@mail.ru",
+    password: "123456",
+    password_confirmation: "123456"
+)
+
+User.create!(
+    name: "Павел",
+    email: "pavel@mail.ru",
+    password: "123456",
+    password_confirmation: "123456"
+)
+
+users = User.order(:created_at).take(3)
+
+for i in 0..5
+    content = "Пост номер #{i}"
+    users.each { |user| user.microposts.create!(content: content) }
+end
+
+for i in 0..5
+    content = "Новость номер #{i}"
+    users.each { |user| user.news_items.create!(content: content)}
+end
