@@ -7,7 +7,9 @@ class MicropostsController < ApplicationController
     
     
     def create
+        @active_ids = params[:active_tags]
         @micropost = current_user.microposts.build(micropost_params)
+        add_tags(@active_ids, @micropost)
         if @micropost.save
             flash[:success] = "Пост создан"
             redirect_to microposts_path
@@ -36,6 +38,12 @@ class MicropostsController < ApplicationController
     end
 
     def update
+        @active_ids = params[:active_tags]
+        @inactive_ids = params[:inactive_tags]
+        
+        add_tags(@active_ids, @micropost)
+        destroy_tags(@inactive_ids, @micropost)
+
         if @micropost.update_attributes(micropost_params)
           flash[:success] = "Пост обновлён" 
           redirect_to action: 'index'

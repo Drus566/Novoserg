@@ -6,17 +6,19 @@
             <p>Тэги поста</p>
             <div id="tags-post">
                 <% @micropost.tags.each do |tag| %>
-                    <%= link_to tag.name, "#", class: "tag" %>
+                    <%= link_to tag.name, "#", class: "tag", id: tag.id %>
                 <% end %>
             </div>
         <% end %>
         <p>Добавьте теги</p>
         <div id="tags-all">
             <% @tags.each do |tag| %>
-                <%= link_to tag.name, "#", class: "tag" %>
+                <%= link_to tag.name, "#", class: "tag", id: tag.id %>
             <% end %>
         </div>
         <br>
+        <%= hidden_field_tag 'inactive_tags', '' %>
+        <%= hidden_field_tag 'active_tags', '' %>
         <%= f.submit yield(:button_text),  class: "btn" %>  
     </div>
 <% end %>
