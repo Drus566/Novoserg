@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  get 'tags/create'
+  get 'tags/destroy'
+  get 'tags/index'
+  get 'tags/show'
+  
   root 'welcome#index'
 
   get '/signup', to: 'users#new'

@@ -17,26 +17,26 @@ body{
     header{
         nav {
             ul {
-               display: flex;
-               flex-direction: row;
-               align-content: center;
-               justify-content: center;
-               margin-right: 1.5em;
-               li {
+                display: flex;
+                flex-direction: row;
+                align-content: center;
+                justify-content: center;
+                margin-right: 1.5em;
+                li {
                    list-style-type: none;
                    margin-right: 1em;
-               }
-               #drop {
-                ul.dropdown{
-                    display: none;
-                }
-               }
-               #drop:hover {
-                   ul.dropdown{
-                       display: inherit;
+                   ul {
+                        list-style-type: none;
+                        position: absolute;
                    }
-               }
-           }
+                }
+                #closed {
+                    display: none 
+                }
+                #opened {
+                    display: inherit
+                }
+            }
         }
     }
     

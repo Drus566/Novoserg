@@ -1,7 +1,10 @@
 class MicropostsController < ApplicationController
+    include TagsHelper
     before_action :logged_in_user, only: [:create, :destroy]
     before_action :get_micropost, only: [:destroy, :edit, :show, :update]
+    before_action :get_all_tags, only: [:edit, :new]
     before_action :valid_micropost_resource, only: [:destroy, :edit, :update ]
+    
     
     def create
         @micropost = current_user.microposts.build(micropost_params)
@@ -19,11 +22,13 @@ class MicropostsController < ApplicationController
     end
 
     def edit
-
+        @micropost_tags = @micropost.tags
+        @tags = elimination_exist_elems(@micropost_tags, @all_tags)
     end
 
     def new
         @micropost = current_user.microposts.build
+        @tags = @all_tags
     end
 
     def show
@@ -62,4 +67,7 @@ class MicropostsController < ApplicationController
             valid_resource(@micropost.user)
         end
 
+        def get_all_tags
+            @all_tags = Tag.all
+        end
 end

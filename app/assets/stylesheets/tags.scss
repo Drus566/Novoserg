@@ -1,0 +1,19 @@
+// Place all the styles related to the tags controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.tag {
+    color: black;
+    background-color: rgb(211, 211, 211);
+    text-decoration: none; 
+    border-radius: 3px;
+    padding: 0.5em;
+}
+.tag-active {
+    @extend .tag;
+    border: 0.3em solid rgb(24, 202, 24);
+}
+.tag-inactive {
+    @extend .tag;
+    border: 0.3em solid rgb(202, 24, 24);
+}

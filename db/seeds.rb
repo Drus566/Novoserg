@@ -34,12 +34,22 @@ User.create!(
 
 users = User.order(:created_at).take(3)
 
+tag = Tag.create(name: "CSGO")
+tag = Tag.create(name: "Dota")
+tag = Tag.create(name: "Просьбы")
+tag = Tag.create(name: "Такси")
+
 for i in 0..5
     content = "Пост номер #{i}"
-    users.each { |user| user.microposts.create!(content: content) }
+    users.each do |user|
+        m = user.microposts.create!(content: content )
+        m.tags<<(tag)
+    end
 end
 
 for i in 0..5
     content = "Новость номер #{i}"
-    users.each { |user| user.news_items.create!(content: content)}
+    users.each { |user| user.news_items.create!(content: content) }
 end
+
+puts "Seeded"

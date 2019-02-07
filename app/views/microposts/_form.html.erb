@@ -1,7 +1,22 @@
-<%= form_for(@micropost) do |f| %>
+<%= form_with(model: @micropost) do |f| %>
     <%= render 'shared/error_messages', object: f.object %>
     <div class="field">
         <%= f.text_area :content, placeholder: "Создайте пост..."%>
+        <% unless @micropost.tags.empty? %>
+            <p>Тэги поста</p>
+            <div id="tags-post">
+                <% @micropost.tags.each do |tag| %>
+                    <%= link_to tag.name, "#", class: "tag" %>
+                <% end %>
+            </div>
+        <% end %>
+        <p>Добавьте теги</p>
+        <div id="tags-all">
+            <% @tags.each do |tag| %>
+                <%= link_to tag.name, "#", class: "tag" %>
+            <% end %>
+        </div>
+        <br>
+        <%= f.submit yield(:button_text),  class: "btn" %>  
     </div>
-    <%= f.submit yield(:button_text),  class: "btn" %>
 <% end %>
