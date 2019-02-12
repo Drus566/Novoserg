@@ -39,17 +39,31 @@ tag = Tag.create(name: "Dota")
 tag = Tag.create(name: "Просьбы")
 tag = Tag.create(name: "Такси")
 
-for i in 0..5
-    content = "Пост номер #{i}"
+for i in 0..1
     users.each do |user|
+        content = "The flex container. ... The Flexible Box Module, usually referred to as flexbox, was designed as a one-dimensional layout model, and as a method that could offer space distribution between items in an interface and powerful alignment capabilities. ... This can be contrasted with the two ..." 
+        x = Random.rand(0..2)
+        if x == 0
+            content = "Некоторый контент короткий"
+        elsif x == 1 
+            content = "Контент чуть чуть подлиньше чем короткий. Контент чуть чуть подлиньше чем короткий.Контент чуть чуть подлиньше чем короткий"
+        end
         m = user.microposts.create!(content: content )
         m.tags<<(tag)
     end
 end
 
 for i in 0..5
-    content = "Новость номер #{i}"
-    users.each { |user| user.news_items.create!(content: content) }
+    for user in users
+        content = "The flex container. ... The Flexible Box Module, usually referred to as flexbox, was designed as a one-dimensional layout model, and as a method that could offer space distribution between items in an interface and powerful alignment capabilities. ... This can be contrasted with the two ..." 
+        x = Random.rand(0..2)
+        if x == 0
+            content = "Некоторый контент короткий"
+        elsif x == 1 
+            content = "Контент чуть чуть подлиньше чем короткий. Контент чуть чуть подлиньше чем короткий.Контент чуть чуть подлиньше чем короткий"
+        end
+        user.news_items.create!(content: content)
+    end
 end
 
 puts "Seeded"

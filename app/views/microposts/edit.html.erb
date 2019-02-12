@@ -1,5 +1,11 @@
 <% provide(:title, "Редактирование поста") %>
 <% provide(:button_text, "Сохранить изменения") %>
 
-<h1>Редактирование поста</h1>
-<%= render partial: "form", locals: {tags: @tags} %>
+<div class="container">
+    <div class="middle-micropost">
+        <%= render partial: "form" %>
+    </div>
+    <%= render "shared/aside" %>
+</div>
+
+

@@ -2,18 +2,49 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+div#tags-all {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    align-items: center; 
+    margin-top: 0.8em;
+}
+.tag-title {
+   margin-right: 0.5em;
+   color: rgb(102, 102, 102);
+   margin: inherit;
+   margin-left: 0.5em;
+   margin-top: 0.5em;
+   margin-right: 0.5em;
+}
+
+div#tags-post {
+    @extend #tags-all;
+}
+
+#tags-add {
+    display: flex;
+    justify-content: flex-start;
+    padding-top: 1em;
+    align-content: center;
+    border-top: 1px solid rgb(207, 207, 207);
+}
+
 .tag {
-    color: black;
-    background-color: rgb(211, 211, 211);
+    border: 1px solid rgb(194, 194, 194);
     text-decoration: none; 
     border-radius: 3px;
-    padding: 0.5em;
+    margin-top: 0.5em;
+    margin-right: 0.5em;
+    padding: 0.25em;
+    color: rgb(65, 65, 65);
 }
 .tag-active {
     @extend .tag;
-    border: 0.3em solid rgb(24, 202, 24);
+    border: 0.2em solid rgb(56, 168, 56);
 }
 .tag-inactive {
     @extend .tag;
-    border: 0.3em solid rgb(202, 24, 24);
+    border: 0.2em solid rgb(192, 56, 56);
 }

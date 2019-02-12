@@ -1,6 +1,6 @@
 class MicropostsController < ApplicationController
     include TagsHelper
-    before_action :logged_in_user, only: [:create, :destroy]
+    before_action :logged_in_user, only: [:create, :destroy, :new]
     before_action :get_micropost, only: [:destroy, :edit, :show, :update]
     before_action :get_all_tags, only: [:edit, :new]
     before_action :valid_micropost_resource, only: [:destroy, :edit, :update ]
@@ -19,7 +19,6 @@ class MicropostsController < ApplicationController
     end
 
     def index 
-        # @micropost = current_user.microposts.build if logged_in?
         @microposts = Micropost.all
     end
 
@@ -29,7 +28,7 @@ class MicropostsController < ApplicationController
     end
 
     def new
-        @micropost = current_user.microposts.build
+        @micropost = current_user.microposts.build if logged_in?
         @tags = @all_tags
     end
 

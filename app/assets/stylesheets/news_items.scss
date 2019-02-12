@@ -1,3 +1,32 @@
 // Place all the styles related to the news_items controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#news-container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 1em;
+    .news-item{
+        margin: 0.5em;
+        width: 20em;
+        border: 1px solid rgb(202, 202, 202);
+        background-color: rgb(249, 251, 255);
+        border-radius: 4px;
+        li{
+            margin: 1em;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            .news-item-content{
+            }
+            .news-item-timestamp{
+                font-size: 0.85em;
+                color: rgb(105, 105, 105);
+                align-self: flex-end;
+                
+            }
+        }
+    }
+}

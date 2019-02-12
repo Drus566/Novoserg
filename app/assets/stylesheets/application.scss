@@ -13,28 +13,83 @@
  *= require_tree .
  *= require_self
  */
+//Global
 body{
-    header{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    background-color: rgb(226, 231, 235);
+    header {
         nav {
-            ul {
+            display: flex;
+            flex-direction: row;
+            background-color: white;
+            align-items: center;
+            height: 3em;
+            a {
+                padding: 0.5em;
+                color: rgb(22, 22, 22);
+            }
+            h1{
+                margin-left: 1em;
+                margin-right: 1em;
+            }
+            #common-nav {
                 display: flex;
                 flex-direction: row;
-                align-content: center;
                 justify-content: center;
-                margin-right: 1.5em;
-                li {
-                   list-style-type: none;
-                   margin-right: 1em;
-                   ul {
-                        list-style-type: none;
-                        position: absolute;
-                   }
+                width: 19em;
+                margin: auto;
+                margin-left: 0;
+                border-left: 1px solid rgb(202, 202, 202);
+                height: 2em;
+            }
+            #closed {
+                display: none; 
+                
+            }
+            #opened {
+                position: absolute;
+                background-color:  rgb(42, 126, 190);
+                width: 7em;
+                margin-top: 0.5em;
+                border-radius: 4px;  
+                padding: 0.3em;              
+                a{
+                    color: white;
+                    padding: 0;
+                    margin: 0;
                 }
-                #closed {
-                    display: none 
+            }
+            #account-div{
+                margin-right: 3em;
+                border: 1px solid #3293DB;
+                border-radius: 4px;
+                width: 7em;
+                padding: 0.3em;
+                #account{
+                    color: rgb(42, 126, 190);
                 }
-                #opened {
-                    display: inherit
+            }
+            #signup-signin{
+                display: flex;
+                flex-direction: row;
+                margin: 0;
+                min-width: 10em;
+                margin-right: 3em;
+                #signup{
+                    margin-right: 1em;
+                    border: 1px solid #3293DB;
+                    color: rgb(42, 126, 190);
+                    border-radius: 4px;
+                    flex: 1;
+                }
+                #signin{
+                    background-color:#3293DB;
+                    color: white;
+                    border-radius: 4px;
+                    min-width: 7em;
+                    text-align: center;
                 }
             }
         }

@@ -1,5 +1,9 @@
 <% provide(:title, "Создание поста") %>
 <% provide(:button_text, "Запостить") %>
 
-<h1>Создание поста</h1>
-<%= render partial: "form", locals: {tags: @tags} %>
+<div class="container">
+    <div class="middle-micropost">
+        <%= render partial: "form" %>
+    </div>
+    <%= render "shared/aside" %>
+</div>

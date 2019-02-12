@@ -1,22 +1,13 @@
 <% provide(:title, "Вход") %>
-<h1>Вход</h1>
-<div class="row">
-    <div>
-        <%= form_for(:session, url: login_path) do |f| %>
-            <%= f.label :email %>
-            <%= f.email_field :email %>
-
-            <%= f.label :password %>
-            <%= f.password_field :password %>
-
-            <%= f.label :remember_me do %>
-                <%= f.check_box :remember_me %>
-                <span>Запомнить меня в этом браузере</span>
-            <% end %>
-
+<div id="session-container">
+    <div id='session-side'></div>
+    <div id='session-form'>
+        <%= form_for(:session, url: login_path ) do |f| %>
+            <h1 id="main-title">Вход</h1>
+            <%= f.email_field :email, placeholder: 'Почта' %>
+            <%= f.password_field :password, placeholder: 'Пароль' %>
             <%= f.submit "Войти" %>
+            <p>Впервые на сайте? Тогда <%= link_to "регистрируйся", signup_path %>.</p>
         <% end %>
-
-        <p>Впервые на сайте? Тогда <%= link_to "регистрируйся", signup_path %></p>
     </div>
 </div>

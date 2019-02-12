@@ -1,0 +1,6 @@
+<div id="tags-add">
+    <%= form_with(url: "/tags/create", class: 'form', method: "get", remote: true) do %>
+        <%= text_field_tag :tag_name, nil, :placeholder => 'Имя метки', :maxlength => 25 %>
+        <%= submit_tag 'Создать метку', class: 'tag-form-btn' %>
+    <% end %>
+</div>

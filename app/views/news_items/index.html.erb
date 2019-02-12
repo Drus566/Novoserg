@@ -1,10 +1,4 @@
 <% provide(:title, "Новости") %>
-<% provide(:title_link, "Создать новость") %>
-<% provide(:link, "/submit_news") %>
-
-<div class="container">
-    <div class="middle">
-        <%= render @news_items %>
-    </div>
-    <%= render "shared/aside" %>
+<div id="news-container">
+    <%= render @news_items %>
 </div>

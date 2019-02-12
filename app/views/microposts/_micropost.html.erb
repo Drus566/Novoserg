@@ -1,18 +1,24 @@
 <div class="post">
-    <li id="micropost-<%= micropost.id %>">
-        <span class="user"><%= link_to micropost.user.name, micropost.user %></span>
-        <% if logged_in? %>
-            <% if user_admin? || current_user.id == micropost.user.id %>
-                <%= link_to "Редактировать", edit_micropost_path(micropost.id) %>
-                <%= link_to "Удалить пост", micropost, :method => :delete, data: { :confirm => 'Вы уверены?' } %>     
-            <% end %>
-        <% end %>       
-        <span class="content"><%= micropost.content %></span>
-        <span class="timestamp">Пост создан <%= time_ago_in_words(micropost.created_at) %> назад.</span>
-        <span class="tags">
+    <div class="micropost-rating-data">
+        <p class="rate-data">+</p>
+        <p class="rate-data">228</p>
+        <p class="rate-data">-</p>
+    </div>
+    <li id="micropost-<%= micropost.id %>" class="micropost-view">
+        <div class="micropost-data">
             <% micropost.tags.each do |tag| %>
                 <%= link_to tag.name, "#", class: "view-tag" %>
             <% end %>
-        </span>
+            <span class="micropost-info">Пост создан пользователем <%= link_to micropost.user.name, micropost.user, class: 'micropost-user-view' %> <%= time_ago_in_words(micropost.created_at) %> назад.</span>
+        </div>
+        <div class="micropost-content"><%= micropost.content %></div>
+        <% if logged_in? %>
+            <% if user_admin? || current_user.id == micropost.user.id %>
+                <div class="micropost-options">
+                    <%= link_to "Редактировать", edit_micropost_path(micropost.id), class: 'micropost-option' %>
+                    <%= link_to "Удалить", micropost, class: 'micropost-option', :method => :delete, data: { :confirm => 'Вы уверены?' } %> 
+                </div>    
+            <% end %>
+        <% end %>       
     </li>
 </div>
