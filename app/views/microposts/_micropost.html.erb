@@ -1,24 +1,22 @@
 <div class="post">
-    <div class="micropost-rating-data">
-        <p class="rate-data">+</p>
-        <p class="rate-data">228</p>
-        <p class="rate-data">-</p>
+    <div class="post-poll">
+        <li>+</li>
+        <li>1000</li>
+        <li>-</li>
     </div>
-    <li id="micropost-<%= micropost.id %>" class="micropost-view">
+    <div id="micropost-<%= micropost.id %>" class="post-content">
         <div class="micropost-data">
-            <% micropost.tags.each do |tag| %>
-                <%= link_to tag.name, "#", class: "view-tag" %>
-            <% end %>
-            <span class="micropost-info">Пост создан пользователем <%= link_to micropost.user.name, micropost.user, class: 'micropost-user-view' %> <%= time_ago_in_words(micropost.created_at) %> назад.</span>
+            <%= render partial: 'shared/tag', collection: micropost.tags %>
+            <div class="micropost-info">Пост создан пользователем <%= link_to micropost.user.name, micropost.user %> <%= time_ago_in_words(micropost.created_at) %> назад.</div>
         </div>
         <div class="micropost-content"><%= micropost.content %></div>
         <% if logged_in? %>
             <% if user_admin? || current_user.id == micropost.user.id %>
                 <div class="micropost-options">
-                    <%= link_to "Редактировать", edit_micropost_path(micropost.id), class: 'micropost-option' %>
-                    <%= link_to "Удалить", micropost, class: 'micropost-option', :method => :delete, data: { :confirm => 'Вы уверены?' } %> 
+                    <%= link_to "Редактировать", edit_micropost_path(micropost.id) %>
+                    <%= link_to "Удалить", micropost, :method => :delete, data: { :confirm => 'Вы уверены?' } %> 
                 </div>    
             <% end %>
         <% end %>       
-    </li>
+    </div>
 </div>

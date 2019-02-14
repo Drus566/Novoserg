@@ -14,6 +14,7 @@
  *= require_self
  */
 //Global
+
 body{
     margin: 0;
     padding: 0;
@@ -46,27 +47,29 @@ body{
             }
             #closed {
                 display: none; 
-                
             }
             #opened {
                 position: absolute;
+                margin-right: auto;
+                margin-top: 2.5em;
                 background-color:  rgb(42, 126, 190);
-                width: 7em;
-                margin-top: 0.5em;
                 border-radius: 4px;  
-                padding: 0.3em;              
+                width: 8em;
                 a{
                     color: white;
-                    padding: 0;
-                    margin: 0;
+                    font-size: 1.2em;
+                    padding-top: 0;
+                    padding-bottom: 0;
                 }
             }
             #account-div{
+                display: flex;
+                align-content: center;
+                align-items: center;
+                flex-direction: column;
                 margin-right: 3em;
                 border: 1px solid #3293DB;
                 border-radius: 4px;
-                width: 7em;
-                padding: 0.3em;
                 #account{
                     color: rgb(42, 126, 190);
                 }

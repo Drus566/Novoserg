@@ -2,9 +2,9 @@
 <% provide(:title_link, "Создать пост") %>
 <% provide(:link, "/submit_post") %>
 
-<div class="container">
-    <div class="middle-microposts">
+<div id="view-microposts-container">
+    <div id="microposts-container">
         <%= render @microposts %>
     </div>
-    <%= render "shared/aside" %>
+    <%= render "shared/create_post" %>
 </div>

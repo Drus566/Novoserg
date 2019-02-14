@@ -6,7 +6,7 @@
             <h1 id="main-title">Вход</h1>
             <%= f.email_field :email, placeholder: 'Почта' %>
             <%= f.password_field :password, placeholder: 'Пароль' %>
-            <%= f.submit "Войти" %>
+            <%= f.submit "Войти", id: "session-form-btn" %>
             <p>Впервые на сайте? Тогда <%= link_to "регистрируйся", signup_path %>.</p>
         <% end %>
     </div>

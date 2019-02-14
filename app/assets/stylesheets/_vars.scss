@@ -1,0 +1,15 @@
+$font-title: "Times New Roman", Georgia, Serif;
+$font-text: "Comic Sans MS", cursive, sans-serif;
+
+$color-side: rgb(50, 147, 219);
+$color-title: rgb(46, 46, 46);
+$color-micropost-background:  rgb(238, 238, 238);
+$color-side-text: rgb(243, 243, 243);
+
+#container{
+    display: flex;
+    //Отступы
+    margin: 2em;
+    margin-left: 1em;
+    margin-right: 1em; 
+}

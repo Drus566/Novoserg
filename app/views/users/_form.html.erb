@@ -1,13 +1,15 @@
-<div id="signup-side">
+<div id="session-container">
+    <div id='session-side'></div>
+    <div id="session-form">
+        <%= form_for(@user) do |f| %>
+            <h1 id="main-title"><%= yield(:title) %></h1>
+            <%= f.text_field :name, placeholder: 'Имя' %>
+            <%= f.email_field :email, placeholder: 'Почта' %>
+            <%= f.password_field :password, placeholder: 'Пароль' %>
+            <%= f.password_field :password_confirmation, placeholder: 'Подтверждение пароля' %>
+            <%= render 'shared/error_messages', object: f.object %>
+            <%= f.submit yield(:button_text), id: 'session-form-btn'%>
+        <% end %>
+    </div>
 </div>
-<div id="signup-form-container">
-    <%= form_for(@user) do |f| %>
-        <h1 id="main-title"><%= yield(:title) %></h1>
-        <%= f.text_field :name, placeholder: 'Имя' %>
-        <%= f.email_field :email, placeholder: 'Почта' %>
-        <%= f.password_field :password, placeholder: 'Пароль' %>
-        <%= f.password_field :password_confirmation, placeholder: 'Подтверждение пароля' %>
-        <%= render 'shared/error_messages', object: f.object %>
-        <%= f.submit yield(:button_text),id: 'signup-button-form'%>
-    <% end %>
-</div>
+

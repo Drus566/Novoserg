@@ -1,18 +1,25 @@
+@import 'vars';
+
 aside{ 
-    width: 21em;
-    margin: 1em 0.1em 0.1em 0.1em;
-    .menu{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        border-radius: 0.3em;
-        border: 1px solid rgb(202, 202, 202);
-        background-color: rgb(249, 251, 255);
-        height: 10em;
-        margin: 0.1em 0.1em 1em 0.1em;
-        .create-post {
-            text-decoration: none;
-        }
+    border: 0.15em solid $color-side;
+    border-radius: 0.2em;
+    height: 11em;
+    margin-left: 2em;
+    background-color: $color-micropost-background;
+    flex: 1;
+}
+
+#create-post{
+    @extend aside;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-width: 10em;
+    a{
+        background-color: $color-side;
+        border-radius: 0.2em;
+        padding: 0.3em;
+        color: $color-side-text;
     }
 }

@@ -1,5 +1,6 @@
 <% provide(:title, @user.name) %>
 
+
 <div class="user-profile-nav">
     <ul>
         <li><%= link_to 'Общее', '#' %></li>
@@ -7,8 +8,8 @@
         <li><%= link_to 'Комменты', '#' %></li>
         <h3 class="user-profile-count-post">Количество постов: <%= @user.microposts.count %></h3>
     </ul>
-    
 </div>
+
 <div class="user-profile-container">
     <div class="user-profile-middle">
         <% if @user.microposts.any? %>

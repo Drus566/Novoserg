@@ -3,7 +3,7 @@
     <div class="micropost-form-field">
         <h1 class="main-title"><%= yield(:title)%></h1>
         <div id="tags-all">
-         <p class="tag-title">Добавить метки:</p>
+        <p class="tag-title">Добавить метки:</p>
             <%= render partial: 'shared/tag', collection: @tags %>
         </div>
         <% unless @micropost.tags.empty? %>
