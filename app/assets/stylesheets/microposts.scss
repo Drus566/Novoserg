@@ -7,12 +7,11 @@
 
 #microposts-container{
     flex: 3.5;
-    
 }
 
 .post{
     font-size: 1.3em;
-    margin-bottom: 2em;
+    margin-bottom: 1em;
     display: flex;
     flex-direction: row;
     border-radius: 0.2em;
@@ -68,5 +67,48 @@
     a{
         margin-right: 0.5em;
     }
+}
+
+#micropost-form{
+    background-color: rgb(249, 251, 255);
+    border: 0.15em solid $color-side;
+    border-radius: 0.2em;
+    display: flex;
+    flex-direction: column;
+}
+
+#micropost-form-field{
+    display: flex;
+    flex-direction: column;
+    margin: 1em;
+    margin-top: 0;
+}
+
+#micropost-form-aside{
+    background-color: $color-side;
+}
+
+.main-title{
+    color: rgb(247, 247, 247);
+    margin-left: 1em;
+}
+
+#micropost-textarea{
+    margin-top: 1.2em;
+    resize: none;
+    height: 7em;
+    font-size: 1.5em;
+}
+
+#micropost-form-btn{
+    border: 0.1em solid $color-side;
+    background-color: $color-side;
+    color: white;
+    width: auto;
+    font-size: 1.2em;
+}
+
+.tag-title {
+    font-size: 1.15em;
 }
 

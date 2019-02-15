@@ -1,6 +1,5 @@
 <% provide(:title, @user.name) %>
 
-
 <div class="user-profile-nav">
     <ul>
         <li><%= link_to 'Общее', '#' %></li>
@@ -10,23 +9,11 @@
     </ul>
 </div>
 
-<div class="user-profile-container">
-    <div class="user-profile-middle">
+<div id="container">
+    <div id="microposts-container">
         <% if @user.microposts.any? %>
-            <ol class="user-profile-microposts">
-                <%= render @microposts %>
-            </ol>
+            <%= render @microposts %>
         <% end %>
     </div>
-    <div class="user-profile-right-panel"> 
-        <div class="user-profile-front">
-            <p>Рисунок</p>
-            <p><%= @user.name %></p>
-        </div>
-        <div class="user-profile-info">
-            <p>Рейтинг</p>
-            <p>День регистрации</p>
-        </div>
-        <%= link_to 'Создать пост', '/submit_post' %>
-    </div>
+    <%= render 'shared/profile' %>
 </div>

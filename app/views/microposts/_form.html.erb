@@ -1,9 +1,11 @@
-<%= form_with(model: @micropost, class: 'form') do |f| %>
+<%= form_with(model: @micropost, id: 'micropost-form') do |f| %>
     <%= render 'shared/error_messages', object: f.object %> 
-    <div class="micropost-form-field">
+    <div id="micropost-form-aside">
         <h1 class="main-title"><%= yield(:title)%></h1>
+    </div>
+    <div id="micropost-form-field">
         <div id="tags-all">
-        <p class="tag-title">Добавить метки:</p>
+            <p class="tag-title">Добавить метки:</p>
             <%= render partial: 'shared/tag', collection: @tags %>
         </div>
         <% unless @micropost.tags.empty? %>
@@ -12,10 +14,9 @@
                 <%= render partial: 'shared/tag', collection: @micropost.tags %>
             </div>
         <% end %>
-        <%= f.text_area :content, placeholder: "Напишите сообщение...", class: 'micropost-textarea', maxlength: '300' %>
-        <%= f.submit yield(:button_text),  class: "micropost-form-btn" %>  
+        <%= f.text_area :content, placeholder: "Напишите сообщение...", id: 'micropost-textarea', maxlength: '600' %>
+        <%= f.submit yield(:button_text),  id: "micropost-form-btn" %>  
         <%= hidden_field_tag 'inactive_tags', '' %>
         <%= hidden_field_tag 'active_tags', '' %>
     </div>
 <% end %>
-<%= render partial: 'form_tag_add' %>

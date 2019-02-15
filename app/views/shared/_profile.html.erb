@@ -1,0 +1,16 @@
+
+<div id="profile-container">
+    <div id="user-profile-front">
+        <div id="user-profile-image-wrapper">
+            <div id="user-profile-image"></div>
+            <li><%= @user.name %></li>
+        </div>
+        <div id="user-profile-info">
+            <li class="user-profile-info-text">Карма</li>
+            <li class="user-profile-info-text-high">1203</li>
+            <li class="user-profile-info-text">Зареган</li>
+            <li class="user-profile-info-text-high">05.05.1996</li>
+        </div>
+    </div>
+    <%= link_to 'Создать пост', '/submit_post' %>
+</div>

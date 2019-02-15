@@ -3,19 +3,19 @@
 aside{ 
     border: 0.15em solid $color-side;
     border-radius: 0.2em;
-    height: 11em;
-    margin-left: 2em;
+    margin-left: 1em;
     background-color: $color-micropost-background;
     flex: 1;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    min-width: 10em;
 }
 
 #create-post{
     @extend aside;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    min-width: 10em;
+    height: 11em;
     a{
         background-color: $color-side;
         border-radius: 0.2em;
@@ -23,3 +23,58 @@ aside{
         color: $color-side-text;
     }
 }
+
+#profile-container{
+    @extend aside;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    a{
+        background-color: $color-side;
+        border-radius: 0.2em;
+        padding: 0.3em;
+        color: $color-side-text;
+        margin: 1em;
+    }
+}
+
+#user-profile-front{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    margin: 0.5em;
+    li{
+        text-align: center;
+    }
+    a{
+        text-align: center;
+    }
+    
+}
+
+#user-profile-image-wrapper{
+    margin-left: auto;
+}
+
+#user-profile-image {
+    width: 5em;
+    height: 5em;
+    background-color: rgb(196, 196, 196);
+    border-radius: 1em;
+    border: 0.1em solid $color-side;
+    align-self: center;
+}
+
+#user-profile-info{
+    margin: auto;
+}
+
+.user-profile-info-text{
+    font-size: 0.9em;
+    color:rgb(94, 94, 94);
+}
+
+.user-profile-info-text-high{
+    color: black;
+}
+
