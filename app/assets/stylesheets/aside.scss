@@ -3,7 +3,6 @@
 aside{ 
     border: 0.15em solid $color-side;
     border-radius: 0.2em;
-    margin-left: 1em;
     background-color: $color-micropost-background;
     flex: 1;
     display: flex;
@@ -11,11 +10,21 @@ aside{
     justify-content: center;
     align-items: center;
     min-width: 10em;
+    padding: 0.5em;
 }
 
 #create-post{
     @extend aside;
+    flex-direction: column;
     height: 11em;
+    ul{
+        font-size: 1.1em;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        text-align: left;
+        margin-bottom: 1em;
+    }
     a{
         background-color: $color-side;
         border-radius: 0.2em;
@@ -29,6 +38,7 @@ aside{
     flex-direction: column;
     width: 100%;
     height: 100%;
+    margin-left: 1em;
     a{
         background-color: $color-side;
         border-radius: 0.2em;
@@ -78,3 +88,22 @@ aside{
     color: black;
 }
 
+#tags-container{
+    @extend aside;
+    margin-top: 1.5em;
+    flex-wrap: wrap;
+    height: initial;
+    a{
+        background-color: rgb(134, 37, 37);
+        color: white;
+    }
+}
+
+#aside-container{
+    margin-left: 1em;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-width: 10em;
+    height: 100%;
+}

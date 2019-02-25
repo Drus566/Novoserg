@@ -24,5 +24,18 @@ class TagsController < ApplicationController
   end
 
   def show
+    @tag = Tag.find(params[:id])
+    @microposts = @tag.microposts
+
+    respond_to do |format|
+      if @microposts
+        format.html { redirect_to @microposts, notice: 'Посты по метке нашлись'}
+        format.js
+        format.json { render json: @microposts, status: :ok }
+      else
+        format.html { redirect_to @microposts, notice: 'Нет постов по метке' }  
+        format.json { render json: @tag.errors, status: :unprocessable_entity }
+      end
+    end
   end
 end

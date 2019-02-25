@@ -6,5 +6,10 @@
     <div id="microposts-container">
         <%= render @microposts %>
     </div>
-    <%= render "shared/create_post" %>
+    <div id="aside-container">
+        <%= render "shared/create_post" %>
+        <div id="tags-container">
+            <%= render partial: 'shared/tag', collection: @tags %>
+        </div>
+    </div>
 </div>

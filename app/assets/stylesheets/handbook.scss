@@ -1,0 +1,36 @@
+@import '_vars';
+
+#handbook-container{
+    display: flex;
+    margin: 2em;  
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+}
+
+.handbook-div{
+    display: flex;
+    flex-direction: column;
+}
+
+.handbook-btn{
+    font-size: 1.1em;
+    border: 0.2em solid rgb(48, 14, 14);
+    margin: 1em;
+    padding: 1em;
+    border-radius: 0.4em;
+    text-align: center;
+    align-self: center;
+    width: 5em;
+    background-color: rgb(141, 28, 28);  
+    color: white;
+}
+
+
+
+ul{
+    padding: 0;
+    margin: 1em;
+    margin-top: 0em;
+    width: 5em;
+}

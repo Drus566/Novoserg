@@ -1,10 +1,40 @@
 $font-title: "Times New Roman", Georgia, Serif;
 $font-text: "Comic Sans MS", cursive, sans-serif;
 
-$color-side: rgb(50, 147, 219);
-$color-title: rgb(46, 46, 46);
-$color-micropost-background:  rgb(245, 245, 245);
+//colors palette
+$color1: #240d39;
+$color2: #c5c9c3;
+$color3: #e4dde4;
+$color4: #c8a6b5;
+$color5: #a83859;
+
+//
+
+//side
+$color-side: #812020;
 $color-side-text: rgb(243, 243, 243);
+$color-title: rgb(46, 46, 46);
+
+// micropost
+$color-micropost-info :  #b47474;
+$color-micropost-options:  #c28f8f;
+$color-micropost-text: black;
+$color-micropost-info-user: #240d39;
+$color-micropost-background: #ffffff;
+$color-micropost-border: black;
+$color-micrpost-aside-background:#a51d1d;
+$color-micropost-aside-text: black;
+
+//tags
+$color-tag-text: #240d39;
+$color-taglabel-text:#a83859;
+$color-tag-border: #a51d1d;
+
+//news
+$color-news-aside: rgb(48, 180, 81);
+$color-news-text: black;
+$color-news-border: black;
+$color-news-background: black;
 
 #container{
     display: flex;
@@ -13,3 +43,4 @@ $color-side-text: rgb(243, 243, 243);
     margin-left: 1em;
     margin-right: 1em; 
 }
+

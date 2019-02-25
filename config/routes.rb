@@ -1,14 +1,11 @@
 Rails.application.routes.draw do
-  get 'tags/create'
-  get 'tags/destroy'
-  get 'tags/index'
-  get 'tags/show'
-  
   root 'welcome#index'
+
+  get '/handbook', to: 'welcome#handbook'
 
   get '/signup', to: 'users#new'
   post '/signup', to: 'users#create'
-  
+
   get '/submit_news', to: 'news_items#new'
   get '/submit_post', to: 'microposts#new'
 
@@ -19,4 +16,5 @@ Rails.application.routes.draw do
   resources :users
   resources :microposts
   resources :news_items
- end
+  resources :tags 
+end

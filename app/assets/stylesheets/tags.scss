@@ -1,3 +1,4 @@
+@import '_vars';
 
 div#tags-all {
     display: flex;
@@ -10,7 +11,7 @@ div#tags-all {
 
 .tag-title {
     margin-right: 0.5em;
-    color: rgb(102, 102, 102);
+    color: $color-taglabel-text;
     margin: inherit;
     margin-left: 0.5em;
     margin-top: 0.5em;
@@ -30,13 +31,13 @@ div#tags-post {
 }
 
 .tag {
-    border: 1px solid rgb(194, 194, 194);
+    border: 0.15em solid $color-tag-border;
     text-decoration: none; 
     border-radius: 3px;
     margin-top: 0.5em;
     margin-right: 0.5em;
     padding: 0.25em;
-    color: rgb(65, 65, 65);
+    color: $color-tag-text;
 }
 
 .tag-active {

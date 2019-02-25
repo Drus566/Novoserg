@@ -5,6 +5,7 @@
             <%= link_to "Главная", controller: "welcome", action: "index" %>
             <%= link_to "Новости", controller: "news_items", action: "index" %>
             <%= link_to "Посты", controller: "microposts", action: "index" %>
+            <%= link_to "Справочник", "/handbook" %>
         </div>
         <% if logged_in? %>
             <div id="account-div">
@@ -23,3 +24,4 @@
         <% end %>
     </nav>
 </header>
+

@@ -1,0 +1,27 @@
+@import '_vars';
+
+#item{
+    width: 20em;
+    height: 10em; 
+    background-color: orange; 
+    margin: 1em;
+}
+#common-info{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 1em;
+}
+
+#weather-info{
+    @extend #item;  
+}
+
+#railway-info{
+    @extend #item;  
+}
+
+#other-info{
+    @extend #item;  
+}

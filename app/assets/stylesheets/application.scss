@@ -13,13 +13,20 @@
  *= require_tree .
  *= require_self
  */
+
 //Global
+@import '_vars';
 
 body {
     margin: 0;
     padding: 0;
     width: 100%;
     background-color: rgb(226, 231, 235);
+    // background-image: url(asset_path('background_body.png'));
+}
+
+header{
+    width: 100%;
 }
 
 nav {
@@ -52,7 +59,7 @@ footer{
     position: absolute;
     margin-right: auto;
     margin-top: 2.5em;
-    background-color:  rgb(42, 126, 190);
+    background-color:  $color-side;
     border-radius: 4px;  
     width: 8em;
     a{
@@ -69,19 +76,19 @@ footer{
     align-items: center;
     flex-direction: column;
     margin-right: 3em;
-    border: 1px solid #3293DB;
+    border: 1px solid $color-side;
     border-radius: 4px;   
 }
 
 #account{
-    color: rgb(42, 126, 190);
+    color: $color-side;
 }
 
 #common-nav {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    width: 19em;
+    width: 25em;
     margin: auto;
     margin-left: 0;
     border-left: 1px solid rgb(202, 202, 202);
@@ -98,14 +105,14 @@ footer{
 
 #signup{
     margin-right: 1em;
-    border: 1px solid #3293DB;
-    color: rgb(42, 126, 190);
+    border: 1px solid $color-side;
+    color: $color-side;
     border-radius: 4px;
     flex: 1;
 }
 
 #signin{
-    background-color:#3293DB;
+    background-color: $color-side;
     color: white;
     border-radius: 4px;
     min-width: 7em;

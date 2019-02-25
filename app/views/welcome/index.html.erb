@@ -1,12 +1,24 @@
 <% provide(:title, "Главная") %>
 
 <div>
-    <h1>Общая инфа</h1>
+    <div id="common-info">
+        <div id="weather-info">
+            Weather
+        </div>
+        <div id="railway-info">
+            Railway
+        </div>
+        <div id="other-info">
+            Other
+        </div>
+    </div>
     <hr>
-    <h1>Пару топовых новостей</h1>
+    <div id="news-container">
+        <%= render @news_items %>
+    </div>
     <hr>
     <div id="container">
-        <div class="middle">
+        <div>
             <%= render @microposts %>
         </div>
     </div> 

@@ -20,6 +20,7 @@ class MicropostsController < ApplicationController
 
     def index 
         @microposts = Micropost.all
+        @tags = Tag.all
     end
 
     def edit

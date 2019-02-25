@@ -1,6 +1,7 @@
 <div class="news-item">
     <li id="news-<%= news_item.id %>">
+        <span class="news-item-title"><%= news_item.title %></span>
         <span class="news-item-content"><%= news_item.content %></span>
-        <span class="news-item-timestamp">Новость создана <%= time_ago_in_words(news_item.created_at) %> назад.</span>
+        <div class="news-item-timestamp">Новость создана <%= time_ago_in_words(news_item.created_at) %> назад.</div>
     </li>
 </div>

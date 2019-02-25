@@ -34,10 +34,13 @@ User.create!(
 
 users = User.order(:created_at).take(3)
 
-tag = Tag.create(name: "CSGO")
-tag = Tag.create(name: "Dota")
+tag = Tag.create(name: "Игры")
 tag = Tag.create(name: "Просьбы")
 tag = Tag.create(name: "Такси")
+tag = Tag.create(name: "Магазин")
+tag = Tag.create(name: "Товары")
+tag = Tag.create(name: "Школа")
+tag = Tag.create(name: "Наука")
 
 for i in 0..1
     users.each do |user|
@@ -56,13 +59,16 @@ end
 for i in 0..5
     for user in users
         content = "The flex container. ... The Flexible Box Module, usually referred to as flexbox, was designed as a one-dimensional layout model, and as a method that could offer space distribution between items in an interface and powerful alignment capabilities. ... This can be contrasted with the two ..." 
+        title = "Средний тиииииииииииииииитттульнииииииик"
         x = Random.rand(0..2)
         if x == 0
+            title = "Супер дллллллиииииииииииииииииииииииинннннннннныйййй титульник"
             content = "Некоторый контент короткий"
         elsif x == 1 
+            title = "Стандартный титульник"
             content = "Контент чуть чуть подлиньше чем короткий. Контент чуть чуть подлиньше чем короткий.Контент чуть чуть подлиньше чем короткий"
         end
-        user.news_items.create!(content: content)
+        user.news_items.create!(title: title, content: content)
     end
 end
 
