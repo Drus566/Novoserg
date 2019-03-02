@@ -10,10 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_20_104904) do
+ActiveRecord::Schema.define(version: 2019_03_01_160158) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "comments", force: :cascade do |t|
+    t.string "commentable_type"
+    t.bigint "commentable_id"
+    t.bigint "user_id"
+    t.text "content", null: false
+    t.integer "parent_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["commentable_type", "commentable_id"], name: "index_comments_on_commentable_type_and_commentable_id"
+    t.index ["parent_id"], name: "index_comments_on_parent_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
+  end
 
   create_table "microposts", force: :cascade do |t|
     t.text "content"
@@ -57,6 +70,7 @@ ActiveRecord::Schema.define(version: 2019_02_20_104904) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  add_foreign_key "comments", "users"
   add_foreign_key "microposts", "users"
   add_foreign_key "news_items", "users"
 end
