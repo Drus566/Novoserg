@@ -25,11 +25,12 @@ class TagsController < ApplicationController
 
   def show
     @tag = Tag.find(params[:id])
+    @tags = Tag.all
     @microposts = @tag.microposts
 
     respond_to do |format|
       if @microposts
-        format.html { redirect_to @microposts, notice: 'Посты по метке нашлись'}
+        format.html { render 'microposts/index', notice: 'Посты по метке нашлись'}
         format.js
         format.json { render json: @microposts, status: :ok }
       else

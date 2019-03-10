@@ -1,0 +1,83 @@
+// Place all the styles related to the Comments controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+@import 'vars';
+
+.micropost-comments-container{
+    padding-top: 0.1em;
+    background-color: rgb(255, 255, 255);
+}
+
+.micropost-comments{
+    background-color: white;
+    border: 0.15em solid $color-side;
+    border-top: 0;
+    padding-left: 0.5em;
+    padding-bottom: 0.5em;
+}
+
+.micropost-comment-form{
+
+    padding: 0.5em;
+    background-color: white;
+
+    border: 0.15em solid $color-side;
+    border-top: 0;
+    form{
+        textarea{
+            resize: none;
+            height: 1.5em;
+            font-size: 1.2em;
+            padding: 0.2em;
+            width: 97%;
+            height: 4em;
+            border: none;
+        }
+    }
+}
+
+.create-comment-btn{
+    border-radius: 0.2em;
+    border: 0.3em solid $color-side;
+    font-size: 1em;
+    color: white;
+    background-color: $color-side;
+}
+
+
+
+
+.micropost-comment-options{
+    font-size: 0.8em;
+}
+
+
+
+.micropost-comment{
+    background-color: rgb(255, 255, 255);
+
+    padding-left: 0.9em;
+    border-left: 0.2em solid rgb(167, 0, 0);
+
+}
+.micropost-comment-content{
+    padding: 0.2em;
+    padding-left: 0;
+    font-size: 1.25em;
+}
+.micropost-comment-info{
+    font-size: 0.8em;
+}
+.comment-ruler{
+    height: 0.5em;
+}
+
+.comments-replies{
+    width: auto;
+    margin: 0;
+ 
+}
+
+.micropost-comment-body{
+    margin-top: 1em;
+}

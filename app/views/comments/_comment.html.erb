@@ -1,0 +1,19 @@
+
+<div class="micropost-comment" id="micropost_comment_<%= comment.id %>">
+    <div class="micropost-comment-body">
+        <div class="micropost-comment-info"><%= link_to comment.user.name, comment.user, class: "micropost-comment-user" %> <%= time_ago_in_words(comment.created_at) %> назад.</div>
+        <div class="micropost-comment-content"><%= comment.content %></div>      
+        <div class="micropost-comment-options">
+            <%= link_to "Редактировать", edit_polymorphic_path([comment.commentable, comment]), class: 'edit-comment-link', remote: true %>
+            <%= link_to "Удалить", [comment.commentable, comment], method: :delete, class: 'delete-comment-link', data: {confirm: 'Вы уверены?'}, remote: true %>
+            <%= link_to "Ответить", polymorphic_path([:reply, comment.commentable, comment]), class: 'reply-comment-link', remote: true %>
+        </div>
+    </div>
+    <% if comment.replies.any? %>
+        <ul class="comments-replies">
+            <%= render :partial => "comments/comment", :collection => comment.replies, :as => :comment %>
+        </ul>
+    <% end %>
+</div>
+
+ 

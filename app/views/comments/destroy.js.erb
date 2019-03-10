@@ -1,0 +1,19 @@
+<% if @comment.errors.empty? %>
+    var micropost = document.getElementById("micropost_<%= @comment.commentable.id %>")
+    var comment = document.getElementById("micropost_comment_<%= @comment.id %>");
+    <% if @comment.parent %>
+        if ((comment.nextSibling == null) && (comment.previousSibling == null)){
+            comment.parentNode.remove();
+        }
+        comment.remove();
+    <% else %>
+        var micropost_comments = micropost.querySelector(".micropost-comments");       
+        var micropost_comments_container = micropost.querySelector(".micropost-comments-container");
+        comment.remove();
+        if (micropost_comments_container.innerText == ""){
+            micropost_comments.remove();
+        }
+    <% end %>
+<% else %>
+
+<% end %>

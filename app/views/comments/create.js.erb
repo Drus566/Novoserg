@@ -1,0 +1,42 @@
+
+<% if @comment.errors.empty? %>
+    <% if @comment.parent %>
+        var comment_parent = document.getElementById("micropost_comment_<%= @comment.parent.id %>").querySelector("ul");
+        if((comment_parent == null) || (!comment_parent.length)){
+            ul = document.createElement("ul");
+            ul.classList.add("comments-replies");
+            var elemParent = document.getElementById("micropost_comment_<%= @comment.parent.id %>");
+            elemParent.appendChild(ul);
+            comment_parent = elemParent.querySelector('ul');
+        }
+        var comment_form = document.getElementById("micropost_comment_<%= @comment.parent.id %>").querySelector(".micropost-comment-form");
+    <% else %>
+        var micropost = document.getElementById("micropost_<%= @comment.commentable.id %>");
+        var micropost_comments = micropost.querySelector(".micropost-comments");
+        if( !micropost_comments){
+            micropost_comments = document.createElement("div");
+            micropost_comments.classList.add("micropost-comments");
+            micropost_comments.innerHTML = "<div class='micropost-comments-container'></div>"
+            var post = micropost.querySelector(".post");
+            micropost.insertBefore(micropost_comments, post.nextSibling);
+        }
+        var comment_parent = micropost.querySelector(".micropost-comments-container");
+        var comment_form = document.getElementById("micropost_<%= @comment.commentable.id %>").querySelector(".micropost-comment-form");
+    <% end %>
+    var text = '<%= j render @comment %>';
+    text = text.trim();
+    var parser = new DOMParser();
+    DOM = parser.parseFromString(text, 'text/html');
+    var res = DOM.body.childNodes[0];
+    comment_parent.appendChild(res);
+    comment_form.querySelector("form").reset();
+    <% if @comment.parent %>
+        comment_form.remove();
+        var comment = document.getElementById("micropost_comment_<%= @comment.parent.id %>");
+        var restore_link = comment.querySelector(".delete-comment-link");
+        var reply_link = comment.querySelector(".reply-comment-link");
+        var attr = restore_link.getAttribute("href") + "/reply"
+        reply_link.setAttribute("href", attr)
+    <% end %>
+<% else %>
+<% end %>

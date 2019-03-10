@@ -1,0 +1,12 @@
+var comment = document.getElementById("micropost_comment_<%= @comment.id %>");
+var comment_form = comment.querySelector(".micropost-comment-form");
+<% if @comment.errors.empty? %>
+    var text = "<%= j render @comment %>";
+    text = text.trim();
+    text = text.slice(0, text.lastIndexOf("<"));
+    text = text.slice(text.indexOf(">") + 1);
+    text = text.trim();
+    comment.innerHTML = text;  
+    comment_form.remove();
+<% else %>
+<% end %>

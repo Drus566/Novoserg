@@ -1,0 +1,12 @@
+<% if @new_comment.errors.empty? %>
+    micropost = document.getElementById("micropost_<%= @new_comment.commentable.id %>");
+    micropost.querySelector(".create-new-comment").removeAttribute("href");
+    var new_node = document.createElement("div");
+    var text = "<%=j render('comments/form', comment: @new_comment ) %>";
+    new_node.innerHTML = text;
+    var elemBefore = micropost.querySelector("div.post");
+    micropost.appendChild(new_node.firstChild);
+<% else %>
+    
+<% end %>
+

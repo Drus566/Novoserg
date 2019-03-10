@@ -1,0 +1,6 @@
+<div class="micropost-comments-container">
+    <% unless commentable.comments.empty? %>
+        <%= render :partial => 'comments/comment', :collection => commentable.comments.where(parent: nil), :as => :comment %>
+    <% end %>
+</div>
+

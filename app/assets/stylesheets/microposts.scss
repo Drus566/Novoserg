@@ -6,17 +6,23 @@
     justify-content: center;
 }
 
-#microposts-container{
+.microposts-container{
     flex: 3.5;
+}
+
+.micropost {
+    margin-bottom: 2em;
 }
 
 .post{
     font-size: 1.3em;
-    margin-bottom: 1em;
     display: flex;
     flex-direction: row;
     border-radius: 0.2em;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
     border: 0.11em solid $color-side;
+    border-bottom: 0.11em solid rgb(95, 5, 5);
     background-color: $color-micropost-background;
 }
 
@@ -118,5 +124,9 @@
 
 .tag-title {
     font-size: 1.15em;
+}
+
+.micropost_ruler {
+    margin-bottom: 1em;
 }
 

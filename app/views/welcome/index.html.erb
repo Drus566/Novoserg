@@ -1,6 +1,6 @@
 <% provide(:title, "Главная") %>
 
-<div>
+<div id="common-view-container">
     <div id="common-info">
         <div id="weather-info">
             Weather
@@ -17,7 +17,7 @@
         <%= render @news_items %>
     </div>
     <hr>
-    <div id="container">
+    <div class="microposts-container">
         <div>
             <%= render @microposts %>
         </div>

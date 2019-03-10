@@ -1,0 +1,11 @@
+<% if @comment.errors.empty? %>
+    comment = document.getElementById("micropost_comment_<%= @comment.id %>");
+    comment.querySelector(".reply-comment-link").removeAttribute("href");
+    var new_node = document.createElement("div");
+    var text = "<%=j render('comments/form', comment: @reply) %>";
+    new_node.innerHTML = text;
+    var elemBefore = comment.querySelector("div.micropost-comment-body");
+    comment.insertBefore(new_node.firstChild, elemBefore.nextSibling);
+<% else %>
+    
+<% end %>

@@ -1,7 +1,7 @@
 class Micropost < ApplicationRecord
   belongs_to :user
   has_and_belongs_to_many :tags
-  has_many :comments, as: :commentable, dependent: :destroy
+  has_many :comments, -> {order(created_at: :asc)}, as: :commentable, dependent: :destroy
   
   default_scope -> { order(created_at: :desc) }
   validates :user_id, presence: true

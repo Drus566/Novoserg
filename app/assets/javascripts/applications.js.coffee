@@ -16,4 +16,5 @@ document.addEventListener 'turbolinks:load', ->
                     return
                 drop.id = 'closed'
     
-
+    
+        

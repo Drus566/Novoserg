@@ -1,22 +1,30 @@
-<div class="post">
-    <div class="post-poll">
-        <li>+</li>
-        <li>1000</li>
-        <li>-</li>
-    </div>
-    <div id="micropost-<%= micropost.id %>" class="post-content">
-        <div class="micropost-data">
-            <%= render partial: 'shared/tag', collection: micropost.tags %>
-            <div class="micropost-info">Пост создан пользователем <%= link_to micropost.user.name, micropost.user %> <%= time_ago_in_words(micropost.created_at) %> назад.</div>
+<div id="micropost_<%= micropost.id %>" class="micropost">
+    <div class="post">
+        <div class="post-poll" data-url="/microposts/<%= micropost.id %>">
+            <li>+</li>
+            <li>1000</li>
+            <li>-</li>
         </div>
-        <div class="micropost-content"><%= micropost.content %></div>
-        <% if logged_in? %>
-            <% if user_admin? || current_user.id == micropost.user.id %>
-                <div class="micropost-options">
-                    <%= link_to "Редактировать", edit_micropost_path(micropost.id) %>
-                    <%= link_to "Удалить", micropost, :method => :delete, data: { :confirm => 'Вы уверены?' } %> 
-                </div>    
-            <% end %>
-        <% end %>       
+        <div class="post-content">
+            <div class="micropost-data">
+                <%= render partial: 'shared/tag', collection: micropost.tags %>
+                <div class="micropost-info">Пост создан пользователем <%= link_to micropost.user.name, micropost.user %> <%= time_ago_in_words(micropost.created_at) %> назад.</div>
+            </div>
+            <div class="micropost-content"><%= micropost.content %></div>
+            <% if logged_in? %>
+                <% if user_admin? || current_user.id == micropost.user.id %>
+                    <div class="micropost-options">
+                        <%= link_to "Редактировать", edit_micropost_path(micropost.id) %>
+                        <%= link_to "Удалить", micropost, :method => :delete, data: { :confirm => 'Вы уверены?' } %> 
+                        <%= link_to "Написать комментарий", new_micropost_comment_path(micropost.id) , class: 'create-new-comment', remote: true %>
+                    </div>    
+                <% end %>
+            <% end %>       
+        </div>
     </div>
+    <% if micropost.comments[0] %>
+        <div class="micropost-comments">
+            <%= render 'comments/comments_widget', commentable: micropost %>
+        </div>
+    <% end %>
 </div>

@@ -34,25 +34,26 @@ User.create!(
 
 users = User.order(:created_at).take(3)
 
-tag = Tag.create(name: "Игры")
-tag = Tag.create(name: "Просьбы")
-tag = Tag.create(name: "Такси")
-tag = Tag.create(name: "Магазин")
-tag = Tag.create(name: "Товары")
-tag = Tag.create(name: "Школа")
-tag = Tag.create(name: "Наука")
+Tag.create(name: "Игры")
+Tag.create(name: "Просьбы")
+Tag.create(name: "Такси")
+Tag.create(name: "Магазин")
+Tag.create(name: "Товары")
+Tag.create(name: "Школа")
+Tag.create(name: "Наука")
 
 for i in 0..1
     users.each do |user|
         content = "The flex container. ... The Flexible Box Module, usually referred to as flexbox, was designed as a one-dimensional layout model, and as a method that could offer space distribution between items in an interface and powerful alignment capabilities. ... This can be contrasted with the two ..." 
         x = Random.rand(0..2)
+        y = Random.rand(1..7)
         if x == 0
             content = "Некоторый контент короткий"
         elsif x == 1 
             content = "Контент чуть чуть подлиньше чем короткий. Контент чуть чуть подлиньше чем короткий.Контент чуть чуть подлиньше чем короткий"
         end
         m = user.microposts.create!(content: content )
-        m.tags<<(tag)
+        m.tags<<(Tag.find(y))
     end
 end
 
@@ -71,5 +72,11 @@ for i in 0..5
         user.news_items.create!(title: title, content: content)
     end
 end
+
+user = User.first
+micropost = user.microposts.first 
+comment = micropost.comments.new(content: "MY First comment")
+comment.user = user
+comment.save 
 
 puts "Seeded"

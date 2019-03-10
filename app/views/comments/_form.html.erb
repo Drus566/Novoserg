@@ -1,0 +1,11 @@
+<div class="micropost-comment-form">
+    <%= form_for [comment.commentable, comment], remote: true do |f| %>
+        <%= f.hidden_field :parent_id %>
+        <%= f.text_area :content, label: false, 
+            placeholder: (f.object.parent_id.nil? ? 'Напишите комментарий...' : 'Ответить...') %>
+        <div class="float-right">
+            <%= f.submit class: 'create-comment-btn' %>
+            <span class='close-micropost-comment-form' data-reply = '<%= comment.parent_id.present? %>'>Закрыть</span>
+        </div>
+    <% end %>
+</div>

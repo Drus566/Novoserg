@@ -9,12 +9,21 @@ Rails.application.routes.draw do
   get '/submit_news', to: 'news_items#new'
   get '/submit_post', to: 'microposts#new'
 
+
+
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
 
   resources :users
-  resources :microposts
+  resources :microposts do
+    resources :comments, except: [:index, :show] do
+      member do
+        get :reply
+      end
+    end
+  end
+  
   resources :news_items
   resources :tags 
 end

@@ -1,9 +1,11 @@
 class MicropostsController < ApplicationController
+    protect_from_forgery except: :show
+
     include TagsHelper
     before_action :logged_in_user, only: [:create, :destroy, :new]
     before_action :get_micropost, only: [:destroy, :edit, :show, :update]
     before_action :get_all_tags, only: [:edit, :new]
-    before_action :valid_micropost_resource, only: [:destroy, :edit, :update ]
+    before_action :valid_micropost_resource, only: [:destroy, :edit, :update]
     
     
     def create
@@ -34,7 +36,19 @@ class MicropostsController < ApplicationController
     end
 
     def show
-
+        @some_micropost = Micropost.first
+        @token = form_authenticity_token
+        respond_to do |format|
+          if @micropost_layer = @micropost
+            format.html { redirect_to action: 'index', notice: 'Пост нашелся' }
+            # format.js { render :js => alert("GGWP"), :json => @micropost_layer }
+            format.js
+            format.json { render json: @some_micropost, status: :ok }
+          else
+            format.html { redirect_to @microposts, notice: 'Нет такого поста' }  
+            format.json { render json: @tag.errors, status: :unprocessable_entity }
+          end
+        end
     end
 
     def update
