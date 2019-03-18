@@ -26,4 +26,6 @@ Rails.application.routes.draw do
   
   resources :news_items
   resources :tags 
+
+  mount ActionCable.server => '/cable'
 end

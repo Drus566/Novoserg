@@ -6,4 +6,5 @@ class Comment < ApplicationRecord
 
   validates :content, presence: true, length: { maximum: 255 }
 
+  after_create_commit { RenderCommentJob.perform_later self }
 end
